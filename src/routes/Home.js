@@ -1,18 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import Movie from './components/Movie';
+import Movie from '../components/Movie';
 import './Home.css';
 
-class Home extends React.Component{
+class Home extends React.Component {
   state = {
     isLoading: true,
-    movies: [],
+    movies: []
   };
   getMovies = async () => {
     const {
       data: {
-        data: {movies},
-      },
+        data: {movies}
+      }
     } = await axios.get('https://yts.mx/api/v2/list_movies.json?sort_by=rating');
     this.setState({movies, isLoading: false});
   };
@@ -46,4 +46,5 @@ class Home extends React.Component{
     );
   }
 }
+
 export default Home;
